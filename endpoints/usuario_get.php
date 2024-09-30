@@ -3,8 +3,17 @@
 function api_usuario_get($request){
 
 $user = wp_get_current_user();
+$user_id = $user->ID;
 
-  return rest_ensure_response($user);
+if($user_id > 0){
+  $user_meta = get_user_meta($user_id);
+
+  $response = array(
+    "id" => 
+  )
+}
+
+  return rest_ensure_response($user_meta);
 }
 
 function registrar_api_usuario_get(){
